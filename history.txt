@@ -1,0 +1,10 @@
+  165  echo "dogs, cats, hamsters" > home_pets
+  166  echo "horses, camels, donkeys" > work_pets
+  167  cat work_pets home_pets > friend_pets
+  169  sudo apt install mysql-server
+  170  apt download linux-firmware
+  171  sudo dpkg -i linux-firmware_20220329.git681281e4-0ubuntu3.13_all.deb 
+  172  sudo apt install -f
+  173  sudo apt-get remove linux-firmware 
+  174  rm linux-firmware_20220329.git681281e4-0ubuntu3.13_all.deb 
+  175  history > history.txt
