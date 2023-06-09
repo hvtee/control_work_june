@@ -1,4 +1,3 @@
-import java.io.IOError;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -12,31 +11,30 @@ public class UI {
         System.out.println("Choice: ");
 
         int key;
-        Scanner scanner = new Scanner(System.in);
+        Scanner choice = new Scanner(System.in);
         try {
-            key = scanner.nextInt();
+            key = choice.nextInt();
         } catch (InputMismatchException error) {
             System.out.println("Wrong choice! Error:" + error);
             return;
         }
 
-        if (key == 1) {
-            System.out.println("1");
-            return;
-        } else if (key == 2) {
-            System.out.println("2");
-            return;
-        } else if (key == 3) {
-            System.out.println("3");
-            return;
-        } else if (key == 4) {
-            System.out.println("4");
-            return;
-        } else if (key == 5) {
-            System.out.println("5");
-            System.exit(1);
-        } else {
-            System.out.println("Wrong choice!");
+        switch (key) {
+            case 1:
+                System.out.println("1");
+                break;
+            case 2:
+                System.out.println("2");
+                break;
+            case 3:
+                System.out.println("3");
+                break;
+            case 4:
+                System.out.println("4");
+                break;
+            case 5:
+                System.out.println("5");
+                System.exit(1);
         }
     }
 }
