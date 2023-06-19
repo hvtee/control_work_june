@@ -3,6 +3,7 @@ import java.util.List;
 
 public class Animal {
     protected String name;
+    protected String type;
     protected List<String> commands;
 
     public Animal(String name) {
@@ -20,4 +21,6 @@ public class Animal {
             System.out.println("- " + command);
         }
     }
+
+
 }
