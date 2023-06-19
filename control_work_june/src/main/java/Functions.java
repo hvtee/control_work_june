@@ -2,6 +2,14 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Functions {
+    public static void showAll(DB db) {
+        db.showAll();
+    }
+
+    public static void showCommands(DB db) {
+
+    }
+
     public static void createAnimal(DB db) {
         int key;
         String name;
@@ -47,7 +55,28 @@ public class Functions {
         }
     }
 
-    public static void addCommand() {
-        return;
+    public static void removeAnimal(DB db) {
+        int key, id;
+        Scanner choice = new Scanner(System.in);
+
+        while (true) {
+            System.out.println();
+            System.out.println("What animal do you want to remove?");
+
+            try {
+                System.out.print("Choice: ");
+                id = choice.nextInt();
+                break;
+            } catch (InputMismatchException error) {
+                System.out.println("Wrong choice! Error:" + error);
+                return;
+            }
+        }
+        db.removeAnimal(id);
     }
+
+    public static void addCommand(DB db) {
+    }
+
+
 }

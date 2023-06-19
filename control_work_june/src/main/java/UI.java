@@ -7,10 +7,11 @@ public class UI {
         while (true) {
             System.out.println();
             System.out.println("1. Add animal");
-            System.out.println("2. Show the list of commands that the animal performs");
-            System.out.println("3. Teach the animal a new command");
-            System.out.println("4. Remove the animal");
-            System.out.println("5. Exit");
+            System.out.println("2. Show all animals");
+            System.out.println("3. Show the list of commands that the animal performs");
+            System.out.println("4. Teach the animal a new command");
+            System.out.println("5. Remove the animal");
+            System.out.println("6. Exit");
             System.out.print("Choice: ");
 
             int key;
@@ -27,7 +28,7 @@ public class UI {
                     Functions.createAnimal(database);
                     break;
                 case 2:
-                    System.out.println("2");
+                    Functions.showAll(database);
                     break;
                 case 3:
                     System.out.println("3");
@@ -36,7 +37,10 @@ public class UI {
                     System.out.println("4");
                     break;
                 case 5:
-                    System.out.println("5");
+                    Functions.removeAnimal(database);
+                    break;
+                case 6:
+                    System.out.println("6");
                     System.exit(1);
             }
         }
