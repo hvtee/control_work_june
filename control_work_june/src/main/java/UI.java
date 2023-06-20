@@ -31,10 +31,10 @@ public class UI {
                     Functions.showAll(database);
                     break;
                 case 3:
-                    System.out.println("3");
+                    Functions.showCommands(database);
                     break;
                 case 4:
-                    System.out.println("4");
+                    Functions.addCommand(database);
                     break;
                 case 5:
                     Functions.removeAnimal(database);

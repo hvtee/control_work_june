@@ -55,6 +55,35 @@ public class DB {
         }
     }
 
+    public void showCommands(int id) {
+        String sql = "SELECT command FROM animals WHERE id = " + id;
+        try (Statement statement = connection.createStatement(); ResultSet resultSet = statement.executeQuery(sql)) {
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("command"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addCommand(int id, String command) {
+        String sql = "UPDATE animals SET command = CONCAT(command, ?) WHERE id = " + id;
+
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, ", " + command); // Добавляем команду с разделителем
+
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Команда успешно добавлена животному с id " + id);
+            } else {
+                System.out.println("Животное с id " + id + " не найдено");
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void saveAnimal(Animal animal) {
         String sql = "INSERT INTO animals (name, type, command) VALUES (?, ?, ?)";
 
@@ -74,8 +103,12 @@ public class DB {
         String sql = "DELETE FROM animals WHERE id = " + id;
 
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.executeUpdate();
-            System.out.println("Запись успешно deleted from таблицу animals.");
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Animal removed with id " + id);
+            } else {
+                System.out.println("Животное с id " + id + " не найдено");
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

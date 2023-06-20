@@ -7,7 +7,23 @@ public class Functions {
     }
 
     public static void showCommands(DB db) {
+        int id;
+        Scanner choice = new Scanner(System.in);
 
+        while (true) {
+            System.out.println();
+            System.out.println("What animal commands do you want to see?");
+
+            try {
+                System.out.print("Choice: ");
+                id = choice.nextInt();
+                break;
+            } catch (InputMismatchException error) {
+                System.out.println("Wrong choice! Error:" + error);
+                return;
+            }
+        }
+        db.showCommands(id);
     }
 
     public static void createAnimal(DB db) {
@@ -56,7 +72,7 @@ public class Functions {
     }
 
     public static void removeAnimal(DB db) {
-        int key, id;
+        int id;
         Scanner choice = new Scanner(System.in);
 
         while (true) {
@@ -76,6 +92,26 @@ public class Functions {
     }
 
     public static void addCommand(DB db) {
+        int id;
+        Scanner choice = new Scanner(System.in);
+
+        while (true) {
+            System.out.println();
+            System.out.println("What animal command do you want to add?");
+
+            try {
+                System.out.print("Choice: ");
+                id = choice.nextInt();
+                break;
+            } catch (InputMismatchException error) {
+                System.out.println("Wrong choice! Error:" + error);
+                return;
+            }
+        }
+
+        System.out.print("What command do you want to teach? ");
+        String command = choice.next();
+        db.addCommand(id, command);
     }
 
 
